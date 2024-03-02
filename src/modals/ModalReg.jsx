@@ -66,8 +66,10 @@ function ModalReg({ setOpenModal }) {
          formData.append("lastName", lastName);
          formData.append("firstName", firstName);
          formData.append("email", email);
-         formData.append("group", group);
          formData.append("role", role);
+         
+         if (role === "STUDENT") formData.append("group", group);
+         if (role === "TEACHER") formData.append("chair", chair);
 
          const res = await fetch(REST.reg, { method: "POST", body: formData });
          const { status } = res;
