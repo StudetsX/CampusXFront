@@ -1,13 +1,22 @@
 // libs
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
 // styles
 import "./Layout.scss";
+// context
+import { UserContext } from "../contexts/UserContext";
+
+// comps
+import { User } from "../env/svgs";
+
+import ModalReg from "../modals/ModalReg";
+
 function Layout() {
    return (
       <>
          <Header />
          <Main>
-            <div>petro</div>
+            <Outlet />
          </Main>
          <Footer />
       </>
@@ -15,7 +24,75 @@ function Layout() {
 }
 
 function Header() {
-   return <header className="header"><p>Yee</p><button className="diman">oleg</button></header>;
+   const { user } = useContext(UserContext);
+   console.log(user);
+   return (
+      <header className="header">
+         <nav>
+            <ul>
+               <li>
+                  <NavLink to="/home">Campus X</NavLink>
+               </li>
+               <li>
+                  <NavLink to="/rating">Рейтинг</NavLink>
+               </li>
+
+               {user.role === "student" && (
+                  <>
+                     <li>
+                        <NavLink to="/tests">Тести</NavLink>
+                     </li>
+                     <li>
+                        <NavLink to="/messages">Повідомлення</NavLink>
+                     </li>
+                  </>
+               )}
+               {user.role === "teacher" && (
+                  <>
+                     <li>
+                        <NavLink to="/create-test">Створити тест</NavLink>
+                     </li>
+                     <li>
+                        <NavLink to="/create-message">
+                           Написати повідомлення
+                        </NavLink>
+                     </li>
+                  </>
+               )}
+            </ul>
+            <UserData role={user.role} />
+         </nav>
+      </header>
+   );
+}
+
+function UserData({ role }) {
+   const { user } = useContext(UserContext);
+   return (
+      <ul>
+         <li>{user.name || "Гість"}</li>
+         {!role && <Modal />}
+      </ul>
+   );
+}
+
+function Modal() {
+   const [open, setOpen] = useState(false);
+   const [openModal, setOpenModal] = useState("");
+   return (
+      <li>
+         {openModal === "Reg" && <ModalReg setOpenModal={setOpenModal}/>}
+         <button onClick ={()=>{
+            setOpen(op => !op)
+         }}>
+            <User />
+         </button>
+         {open && <div>
+            <button onClick={()=>{setOpenModal("Log")}}>Вхід</button>
+            <button onClick={()=>{setOpenModal("Reg")}}>Реєстрація</button>
+            </div>}
+      </li>
+   );
 }
 
 function Main({ children }) {

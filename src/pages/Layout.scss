@@ -1,6 +1,22 @@
 .header {
+   padding: 15px;
    // color: red;
    color: var(--pink);
+   nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      ul {
+         display: flex;
+         align-items: center;
+         gap: 20px;
+      }
+   }
+
+   background-color: var(--utility-gray);
+
+   color: var(--gray-text);
+   font-size: 1.2rem;
 }
 
 .diman {
