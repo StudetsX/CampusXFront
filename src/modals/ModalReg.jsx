@@ -16,7 +16,7 @@ function ModalReg({ setOpenModal }) {
 
    const [response, setResponse] = useState("");
 
-   const [role, setRole] = useState("student");
+   const [role, setRole] = useState("STUDENT");
 
    const [image, setImage] = useState(null);
 
@@ -118,7 +118,7 @@ function ModalReg({ setOpenModal }) {
                />
             </label>
 
-            <label className="photo">
+            {/* <label className="photo">
             <div className="photoView">
                {imageSrc && <img src={imageSrc} />}
                <p>{imageName ? imageName : "insert photo (max 1.0 MB)"}</p>
@@ -136,8 +136,8 @@ function ModalReg({ setOpenModal }) {
                }}
                hidden
             />
-         </label>
-            {role === "student" && (
+         </label> */}
+            {role === "STUDENT" && (
                <label className="select-container">
                   <p>Група</p>
                   <select
@@ -152,7 +152,7 @@ function ModalReg({ setOpenModal }) {
                   </select>
                </label>
             )}
-            {role === "teacher" && (
+            {role === "TEACHER" && (
                <label className="select-container">
                   <p>Кафедра</p>
                   <select
