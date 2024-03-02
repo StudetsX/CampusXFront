@@ -4,7 +4,10 @@ const REST = {
    log: `${BS}/login`,
    rating: (grp, lstn) => `${BS}users?group=${grp}&lastName=${lstn}`,
    findAllChairs: `${BS}/findAllChairs`,
-   findAllGroups: `${BS}/findAllGroups`
+   findAllGroups: `${BS}/findAllGroups`,
+   findAllSubjects: `${BS}/findAllSubjects`,
+
+   createTest: `${BS}/createTest`
 };
 
 export { REST };

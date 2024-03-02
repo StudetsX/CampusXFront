@@ -1,6 +1,8 @@
 // libs
 import { useState, useEffect } from "react";
 
+// context
+import { REST } from "../../env/config";
 // comps
 import { Plus } from "../../env/svgs";
 
@@ -26,7 +28,6 @@ function CreateTest() {
    // ];
    const [questions, setQuestions] = useState([]);
 
-
    useEffect(() => {
       (async () => {
          const grps = await fetch(REST.findAllGroups).then((res) => res.json());
@@ -34,7 +35,9 @@ function CreateTest() {
       })();
 
       (async () => {
-         const sbjcts = await fetch(REST.findAllSubjects).then((res) => res.json());
+         const sbjcts = await fetch(REST.findAllSubjects).then((res) =>
+            res.json()
+         );
          setAllSubjects(sbjcts);
       })();
    }, []);
@@ -66,10 +69,25 @@ function CreateTest() {
          name: title,
          group,
          subject,
-         description, 
+         description,
          tasks: sendTests
       };
       console.log(sendData);
+
+      (async () => {
+         const res = await fetch(REST.createTest, {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(sendData)
+         });
+         const { status } = res;
+         console.log(status);
+         if (String(status)[0] === "2") {
+            console.log("ok");
+         } else {
+            console.log("fail");
+         }
+      })();
    }
    return (
       <div className="create-test">
