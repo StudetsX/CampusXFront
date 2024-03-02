@@ -17,8 +17,8 @@ function CreateTest() {
    const [allGroups, setAllGroups] = useState([]);
    const [allSubjects, setAllSubjects] = useState([]);
 
-   const [group, setGroup] = useState("");
-   const [subject, setSubject] = useState("");
+   const [group, setGroup] = useState("1");
+   const [subject, setSubject] = useState("1");
 
    const [description, setDescription] = useState("");
 
@@ -142,6 +142,7 @@ function CreateTest() {
                placeholder="Опис тесту"
                cols="30"
                rows="10"
+               onChange={({target})=>{setDescription(target.value)}}
             ></textarea>
          </div>
          <ul className="questions">
