@@ -14,7 +14,8 @@ function App() {
    }, []);
 
    useEffect(() => {
-      console.log("token effect triggered")
+      console.log("token effect triggered");
+      console.log(token);
       // const userPlaceHodler = {
          
       // }
