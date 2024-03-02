@@ -27,8 +27,8 @@ function ModalReg({ setOpenModal }) {
 
    const [firstName, setFirstName] = useState("");
    const [lastName, setLastName] = useState("");
-   const [group, setGroup] = useState("");
-   const [chair, setChair] = useState("");
+   const [group, setGroup] = useState("1");
+   const [chair, setChair] = useState("1");
 
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
@@ -66,8 +66,8 @@ function ModalReg({ setOpenModal }) {
          formData.append("lastName", lastName);
          formData.append("firstName", firstName);
          formData.append("email", email);
-         formData.append("group", "1");
-         formData.append("role", "STUDENT");
+         formData.append("group", group);
+         formData.append("role", role);
 
          const res = await fetch(REST.reg, { method: "POST", body: formData });
          const { status } = res;
