@@ -5,43 +5,53 @@ import { useParams } from "react-router-dom";
 // context
 import { UserContext } from "../../contexts/UserContext";
 
+// styles
+import "./Cabin.scss"
+
 function Cabin() {
    const { id } = useParams();
    const { user } = useContext(UserContext);
-   return (
-      <>
-         <CabinData id={id} />
-         {user.id === id && <ChoiceData />}
-      </>
-   );
-}
 
-function ChoiceData() {
-   const [choice, setChoice] = useState("");
+   console.log(id, user.id, user.id == id)
    return (
-      <div className="choice-data">
-         <ChoiceBar setChoice={setChoice} />
+      <div className="cabin">
+         <h1>Кабінет</h1>
+         <h2>{id}</h2>
+         <h2>{user.id}</h2>
+         <div className="user-data-wrapper">
+            <CabinData id={id} />
+            {user.id == id && <ChoiceData />}
+         </div>
       </div>
    );
 }
 
-function ChoiceBar({ setChoice }) {
+function ChoiceData() {
+   const [choice, setChoice] = useState("success");
+   return (
+      <div className="choice-data">
+         <ChoiceBar choice={choice} setChoice={setChoice} />
+      </div>
+   );
+}
+
+function ChoiceBar({ choice, setChoice }) {
    const { user } = useContext(UserContext);
    const changeChoice = (ch) => () => {
-      setChoice(ch)
+      setChoice(ch);
    };
    return (
       <div className="choice-bar">
          <ul>
             <li>
-               <button onClick={changeChoice("message")}>Повідомлення</button>
+               <button onClick={changeChoice("message")} className={choice === "message" ? "active" : ""}>Повідомлення</button>
             </li>
             <li>
-               <button onClick={changeChoice("tests")}>Тести</button>
+               <button onClick={changeChoice("tests")} className={choice === "tests" ? "active" : ""}>Тести</button>
             </li>
             {user.role === "student" && (
                <li>
-                  <button onClick={changeChoice("success")}>Успішність</button>
+                  <button onClick={changeChoice("success")} className={choice === "success" ? "active" : ""}>Успішність</button>
                </li>
             )}
          </ul>

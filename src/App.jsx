@@ -14,6 +14,7 @@ function App() {
    }, []);
 
    useEffect(() => {
+      console.log("token effect triggered")
       // const userPlaceHodler = {
          
       // }
@@ -24,10 +25,11 @@ function App() {
       // }
       // setUser(userPlaceHodler);
       if (!token) return;
+      console.log("token not empty")
       localStorage.setItem("token", token);
       const base64Url = token.split(".")[1];
       const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-      setUser(JSON.parse(atob(base64)));      
+      setUser(JSON.parse(atob(base64)));  
    }, [token]);
 
    const provideUser = { user, setToken };

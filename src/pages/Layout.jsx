@@ -10,6 +10,7 @@ import { UserContext } from "../contexts/UserContext";
 import { User } from "../env/svgs";
 
 import ModalReg from "../modals/ModalReg";
+import ModalLog from "../modals/ModalLog";
 
 function Layout() {
    return (
@@ -82,6 +83,7 @@ function Modal() {
    return (
       <li>
          {openModal === "Reg" && <ModalReg setOpenModal={setOpenModal}/>}
+         {openModal === "Log" && <ModalLog setOpenModal={setOpenModal}/>}
          <button onClick ={()=>{
             setOpen(op => !op)
          }}>

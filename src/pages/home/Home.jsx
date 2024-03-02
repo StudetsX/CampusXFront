@@ -1,8 +1,9 @@
-import React from "react";
+// stles
+import "./Home.scss"
 
 function Home() {
    return (
-      <>
+      <div className="home">
          <h1>Домашня сторінка</h1>
          <section>
             <h2>Новини</h2>
@@ -19,7 +20,7 @@ function Home() {
                vel quae dolorem labore commodi aspernatur accusantium.
             </p>
          </section>
-      </>
+      </div>
    );
 }
 

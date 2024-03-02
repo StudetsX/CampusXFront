@@ -1,0 +1,61 @@
+.olerlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100svh;
+   width: 100vw;
+   background-color: rgba(0, 0, 0, 0.15);
+   z-index: 3;
+}
+
+form.log {
+   z-index: 4;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: var(--dark);
+   border: var(--gray-border) solid 1px;
+   border-radius: 12px;
+   padding: 15px 30px;
+
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+
+   h2 {
+      text-align: center;
+   }
+
+   .back {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+   }
+
+   .text-field {
+      background-color: var(--dark-field);
+      border-radius: 4px;
+      padding: 8px 16px;
+
+      outline: 1px solid var(--gray-border);
+      &:focus {
+         outline: 2px solid var(--gray-border-focus);
+      }
+   }
+
+   .submit {
+      align-self: center;
+      border-radius: 8px;
+      padding: 8px 32px;
+      width: 50%;
+      text-align: center;
+      // background-color: var(--pink);
+      color: var(--white);
+
+      &:hover {
+         background-color: var(--gray-focus);
+         color: var(--light-white);
+      }
+   }
+}

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Rating() {
-  return (
-    <div>Rating</div>
-  )
+   return (
+      <div className="rating">
+         <h1>Рейтинг</h1>
+      </div>
+   );
 }
 
-export default Rating
+export default Rating;

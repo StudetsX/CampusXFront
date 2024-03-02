@@ -31,6 +31,15 @@ input, button, textarea {
   display: block;
   font-size: inherit;
   font-family: inherit;
+  color: inherit;
+}
+
+select {
+  display: block;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  border: none;
 }
 button {
   cursor: pointer;
@@ -54,4 +63,18 @@ ul li {
 #root {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.main{
+  flex-grow: 1;
+  padding: 15px;
+  background-color: var(--dark);
+  color: var(--gray-text);
+
+  div > h1 {
+    text-align: center;
+    color: var(--white);
+    font-size: 2.5rem;
+  }
 }

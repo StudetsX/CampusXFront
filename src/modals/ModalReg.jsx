@@ -2,6 +2,7 @@
 import { useState, useContext } from "react";
 
 // comps
+import { Cross } from "../env/svgs";
 
 // context
 import { REST } from "../env/config";
@@ -11,7 +12,7 @@ import { UserContext } from "../contexts/UserContext";
 // styles
 import "./ModalReg.scss";
 function ModalReg({ setOpenModal }) {
-   const {setToken} = useContext(UserContext);
+   const { setToken } = useContext(UserContext);
 
    const [response, setResponse] = useState("");
 
@@ -40,18 +41,14 @@ function ModalReg({ setOpenModal }) {
          // formData
          const formData = new FormData();
          formData.append("image", image);
-         formData.append("password",password)
-         formData.append("lastName",lastName)
-         formData.append("firstName",firstName)
-         formData.append("email",email)
-         formData.append("group","1")
-         formData.append("role","STUDENT")
+         formData.append("password", password);
+         formData.append("lastName", lastName);
+         formData.append("firstName", firstName);
+         formData.append("email", email);
+         formData.append("group", "1");
+         formData.append("role", "STUDENT");
 
-
-
-
-         const res = await fetch(REST.reg, { method: "POST", body: formData
-         });
+         const res = await fetch(REST.reg, { method: "POST", body: formData });
          const { status } = res;
          console.log(status);
          if (String(status)[0] === "2") {
@@ -66,17 +63,28 @@ function ModalReg({ setOpenModal }) {
    return (
       <div className="olerlay">
          <form className="reg" onSubmit={submit}>
+            <h2>Реєстрація</h2>
             <button
                className="back"
                onClick={() => {
                   setOpenModal("");
                }}
             >
-               back
+               <Cross/>
             </button>
             <div className="role-select">
-               <button onClick={changeRole("student")}>Студент</button>
-               <button onClick={changeRole("teacher")}>Вчитель</button>
+               <button
+                  onClick={changeRole("student")}
+                  className={role === "student" ? "active" : ""}
+               >
+                  Студент
+               </button>
+               <button
+                  onClick={changeRole("teacher")}
+                  className={role === "teacher" ? "active" : ""}
+               >
+                  Вчитель
+               </button>
             </div>
             <label className="photo">
                <p>insert photo</p>
@@ -88,10 +96,20 @@ function ModalReg({ setOpenModal }) {
                   }}
                />
             </label>
-            <TextInput type="name" val={firstName} set={setFirstName} ph="Імʼя" />
-            <TextInput type="name" val={lastName} set={setLastName} ph="Прізвище" />
+            <TextInput
+               type="name"
+               val={firstName}
+               set={setFirstName}
+               ph="Імʼя"
+            />
+            <TextInput
+               type="name"
+               val={lastName}
+               set={setLastName}
+               ph="Прізвище"
+            />
             {role === "student" && (
-               <label>
+               <label className="select-container">
                   <p>Група</p>
                   <select
                      value={group}
@@ -105,7 +123,7 @@ function ModalReg({ setOpenModal }) {
                </label>
             )}
             {role === "teacher" && (
-               <label>
+               <label className="select-container">
                   <p>Кафедра</p>
                   <select
                      value={chair}
@@ -121,7 +139,7 @@ function ModalReg({ setOpenModal }) {
 
             <TextInput type="email" val={email} set={setEmail} />
             <TextInput type="password" val={password} set={setPassword} />
-            {response || <button>submit</button>}
+            {response || <button className="submit">Підтвердити</button>}
             {/* {response && <p>{response}</p>} */}
          </form>
       </div>
@@ -134,6 +152,7 @@ function TextInput({ type, val, set, ph }) {
    }
    return (
       <input
+         className="text-field"
          type={type}
          placeholder={ph}
          value={val}
