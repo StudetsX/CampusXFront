@@ -17,12 +17,12 @@ function App() {
       // const userPlaceHodler = {
          
       // }
-      // const userPlaceHodler = {
-      //    id: 41,
-      //    name: "Ivan",
-      //    role: "student"
-      // }
-      // setUser(userPlaceHodler);
+      const userPlaceHodler = {
+         id: 41,
+         name: "Ivan",
+         role: "student"
+      }
+      setUser(userPlaceHodler);
       if (!token) return;
       localStorage.setItem("token", token);
       const base64Url = token.split(".")[1];
