@@ -1,5 +1,5 @@
 .olerlay {
-   position: absolute;
+   position: fixed;
    top: 0;
    left: 0;
    height: 100svh;
@@ -29,11 +29,12 @@ form.log {
 
    .back {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 15px;
+      right: 15px;
    }
 
    .text-field {
+      width: 350px;
       background-color: var(--dark-field);
       border-radius: 4px;
       padding: 8px 16px;

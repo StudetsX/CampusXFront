@@ -1,5 +1,9 @@
 .rating {
 
+   & > *:not(:first-child) {
+      margin-top: 24px !important;
+   }
+
 
    .params {
       display: flex;
@@ -32,6 +36,43 @@
          padding: 8px 16px;
 
          outline: 1px solid var(--gray-border);
+      }
+   }
+
+   .display-students{
+      font-size: 1.2rem;
+      background-color: var(--utility-gray);
+      border-radius: 25px;
+      width: min(1000px, 100%);
+      margin: 0 auto;
+      border-collapse: collapse;
+
+      tr:nth-child(1){
+         border-bottom: 1px solid var(--dark);
+         // background-color: red;
+      }
+
+      th {
+         text-align: center;
+         border-left: 1px solid var(--dark);
+         border-right: 1px solid var(--dark);
+         padding: 8px 16px;
+      }
+
+      td {
+         border-left: 1px solid var(--dark);
+         border-right: 1px solid var(--dark);
+         text-align: center;
+         padding: 8px 16px;
+      }
+      // display: flex;
+      // flex-direction: column;
+      // gap: 15px;
+
+      .names{
+         display: flex;
+         gap: 15px;
+         justify-content: center;
       }
    }
 }

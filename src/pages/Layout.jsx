@@ -70,8 +70,8 @@ function Header() {
 function UserData({ role }) {
    const { user } = useContext(UserContext);
    return (
-      <ul>
-         <li>{user.name || "Гість"}</li>
+      <ul className="modalik-data">
+         <li className="modalik-name">{user.name || "Гість"}</li>
          {!role && <Modal />}
       </ul>
    );
@@ -81,18 +81,37 @@ function Modal() {
    const [open, setOpen] = useState(false);
    const [openModal, setOpenModal] = useState("");
    return (
-      <li>
-         {openModal === "Reg" && <ModalReg setOpenModal={setOpenModal}/>}
-         {openModal === "Log" && <ModalLog setOpenModal={setOpenModal}/>}
-         <button onClick ={()=>{
-            setOpen(op => !op)
-         }}>
+      <li className="reg-log-button">
+         {openModal === "Reg" && <ModalReg setOpenModal={setOpenModal} />}
+         {openModal === "Log" && <ModalLog setOpenModal={setOpenModal} />}
+         <button
+            className="modalik-trigger"
+            onClick={() => {
+               setOpen((op) => !op);
+            }}
+         >
             <User />
          </button>
-         {open && <div>
-            <button onClick={()=>{setOpenModal("Log")}}>Вхід</button>
-            <button onClick={()=>{setOpenModal("Reg")}}>Реєстрація</button>
-            </div>}
+         {open && (
+            <div className="modalik">
+               <div className="modalik-buttons">
+                  <button
+                     onClick={() => {
+                        setOpenModal("Log");
+                     }}
+                  >
+                     Вхід
+                  </button>
+                  <button
+                     onClick={() => {
+                        setOpenModal("Reg");
+                     }}
+                  >
+                     Реєстрація
+                  </button>
+               </div>
+            </div>
+         )}
       </li>
    );
 }

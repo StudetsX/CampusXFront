@@ -1,0 +1,101 @@
+.create-test {
+   .fields {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+   }
+
+   .text-field {
+      width: 350px;
+      background-color: var(--dark-field);
+      border-radius: 4px;
+      padding: 8px 16px;
+
+      outline: 1px solid var(--gray-border);
+      &:focus {
+         outline: 2px solid var(--gray-border-focus);
+      }
+   }
+
+   .selects-wrapper {
+      display: flex;
+      gap: 24px;
+   }
+
+   .select-container {
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      p {
+         font-size: 1.2rem;
+      }
+
+      select {
+         background-color: var(--dark-field);
+         border-radius: 4px;
+         padding: 8px 16px;
+
+         outline: 1px solid var(--gray-border);
+      }
+   }
+
+   .questions {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      .test {
+         background-color: var(--utility-gray);
+         border-radius: 12px;
+         padding: 8px 24px;
+         border: 1px solid var(--gray-border);
+         display: flex;
+         flex-direction: column;
+         gap: 8px;
+      }
+
+      .test-answers {
+         display: flex;
+         gap: 24px;
+         li {
+            list-style: circle;
+            // border: 1px solid #fff;
+            input {
+               border: 1px solid var(--gray-border);
+               border-radius: 8px;
+               padding: 4px 8px;
+            }
+         }
+      }
+   }
+
+   .add-question button {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+   }
+
+   .create-test-sibmit-wrapper {
+      margin-top: 24px;
+         display: flex;
+         justify-content: center;
+      button {
+         width: 50%;
+         text-align: center;
+         border-radius: 8px;
+         padding: 8px 16px;
+         background-color: var(--pink);
+         color: var(--white);
+
+         &:hover {
+            background-color: var(--pink-hover);
+            color: var(--light-white);
+         }
+      }
+   }
+}

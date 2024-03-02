@@ -1,7 +1,11 @@
 .header {
    padding: 15px;
    // color: red;
-   color: var(--pink);
+
+   background-color: var(--utility-gray);
+
+   color: var(--gray-text);
+   font-size: 1.2rem;
    nav {
       display: flex;
       justify-content: space-between;
@@ -13,12 +17,72 @@
       }
    }
 
-   background-color: var(--utility-gray);
+   .modalik-name {
+      color: var(--pink);
+      position: relative;
+      z-index: 2;
+      height: 32px;
+   }
 
-   color: var(--gray-text);
-   font-size: 1.2rem;
-}
+   .modalik-data {
+      margin-right: 15px;
+      position: relative;
+      // background-color: red;
+   }
 
-.diman {
-   background-color: var(--red);
+   .modalik-trigger {
+      position: relative;
+      z-index: 2;
+   }
+
+   // .reg-log-button{
+   //    position: relative;
+   //    background-color: red;
+   // }
+
+   .modalik {
+      z-index: 1;
+      position: absolute;
+      width: calc(100% + 30px + 40px);
+      padding: calc(10px + 37px) 10px 10px 10px;
+      right: -15px;
+      top: -5px;
+      border-radius: 12px;
+      background-color: var(--dark-field);
+      border: 1px solid var(--gray-border);
+   }
+
+   .modalik-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      // align-items: center;
+
+      button:nth-child(1) {
+         border-radius: 8px;
+         padding: 8px 16px;
+         // width: 50%;
+         text-align: center;
+         // background-color: var(--pink);
+         color: var(--white);
+
+         &:hover {
+            background-color: var(--gray-focus);
+            color: var(--light-white);
+         }
+      }
+
+      button:nth-child(2) {
+         text-align: center;
+         border-radius: 8px;
+         padding: 8px 16px;
+         background-color: var(--pink);
+         color: var(--white);
+
+         &:hover {
+            background-color: var(--pink-hover);
+            color: var(--light-white);
+         }
+      }
+   }
 }

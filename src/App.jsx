@@ -19,12 +19,12 @@ function App() {
       // const userPlaceHodler = {
          
       // }
-      // const userPlaceHodler = {
-      //    id: 41,
-      //    name: "Ivan",
-      //    role: "student"
-      // }
-      // setUser(userPlaceHodler);
+      const userPlaceHodler = {
+         id: 41,
+         name: "Ivan",
+         role: "teacher"
+      }
+      setUser(userPlaceHodler);
       if (!token) return;
       console.log("token not empty")
       localStorage.setItem("token", token);

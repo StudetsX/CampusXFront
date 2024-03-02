@@ -1,5 +1,5 @@
 // libs
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 // comps
 import { Cross } from "../env/svgs";
@@ -20,6 +20,11 @@ function ModalReg({ setOpenModal }) {
 
    const [image, setImage] = useState(null);
 
+   const imageSize = image?.size ? image?.size > 1000000 : false;
+   // photo visual
+   const imageName = image && image.name;
+   const imageSrc = image && URL.createObjectURL(image);
+
    const [firstName, setFirstName] = useState("");
    const [lastName, setLastName] = useState("");
    const [group, setGroup] = useState("");
@@ -28,32 +33,27 @@ function ModalReg({ setOpenModal }) {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
 
-
-
    // groups chairs
    const [allGroups, setAllGroups] = useState([]);
    const [allChairs, setAllChairs] = useState([]);
 
    useEffect(() => {
       (async () => {
-         const grps = fetch(REST.findAllGroups).then((res) => res.json());
+         const grps = await fetch(REST.findAllGroups).then((res) => res.json());
          setAllGroups(grps);
       })();
 
       (async () => {
-         const chrs = fetch(REST.findAllChairs).then((res) => res.json());
+         const chrs = await fetch(REST.findAllChairs).then((res) => res.json());
          setAllChairs(chrs);
       })();
    }, []);
-
-
 
    const changeRole = (rl) => (e) => {
       console.log(e);
       e.preventDefault();
       setRole(rl);
    };
-
 
    function submit(e) {
       e.preventDefault();
@@ -91,7 +91,7 @@ function ModalReg({ setOpenModal }) {
                   setOpenModal("");
                }}
             >
-               <Cross/>
+               <Cross />
             </button>
             <div className="role-select">
                <button
@@ -117,18 +117,26 @@ function ModalReg({ setOpenModal }) {
                   }}
                />
             </label>
-            <TextInput
-               type="name"
-               val={firstName}
-               set={setFirstName}
-               ph="Імʼя"
+
+            <label className="photo">
+            <div className="photoView">
+               {imageSrc && <img src={imageSrc} />}
+               <p>{imageName ? imageName : "insert photo (max 1.0 MB)"}</p>
+               {imageSize && (
+                  <p style={{ color: "#dc4c64" }}>
+                     photo is too large (max 1.0 MB)
+                  </p>
+               )}
+            </div>
+            <input
+               type="file"
+               onChange={({ target }) => {
+                  const fileX = target.files[0];
+                  fileX && setImage(fileX);
+               }}
+               hidden
             />
-            <TextInput
-               type="name"
-               val={lastName}
-               set={setLastName}
-               ph="Прізвище"
-            />
+         </label>
             {role === "student" && (
                <label className="select-container">
                   <p>Група</p>
@@ -139,8 +147,8 @@ function ModalReg({ setOpenModal }) {
                      }}
                   >
                      {allGroups.map((grp) => (
-                     <option value={grp.id}>{grp.name}</option>
-                  ))}
+                        <option value={grp.id}>{grp.name}</option>
+                     ))}
                   </select>
                </label>
             )}
@@ -153,12 +161,24 @@ function ModalReg({ setOpenModal }) {
                         setChair(target.value);
                      }}
                   >
-                    {allChairs.map((grp) => (
-                     <option value={grp.id}>{grp.name}</option>
-                  ))}
+                     {allChairs.map((grp) => (
+                        <option value={grp.id}>{grp.name}</option>
+                     ))}
                   </select>
                </label>
             )}
+            <TextInput
+               type="name"
+               val={firstName}
+               set={setFirstName}
+               ph="Імʼя"
+            />
+            <TextInput
+               type="name"
+               val={lastName}
+               set={setLastName}
+               ph="Прізвище"
+            />
 
             <TextInput type="email" val={email} set={setEmail} />
             <TextInput type="password" val={password} set={setPassword} />
