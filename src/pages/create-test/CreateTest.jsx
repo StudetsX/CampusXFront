@@ -1,7 +1,8 @@
 // libs
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // context
+import { UserContext } from "../../contexts/UserContext";
 import { REST } from "../../env/config";
 // comps
 import { Plus } from "../../env/svgs";
@@ -9,6 +10,8 @@ import { Plus } from "../../env/svgs";
 // styles
 import "./CreateTest.scss";
 function CreateTest() {
+   const { token } = useContext(UserContext);
+
    const [title, setTitle] = useState("");
 
    const [allGroups, setAllGroups] = useState([]);
@@ -77,7 +80,10 @@ function CreateTest() {
       (async () => {
          const res = await fetch(REST.createTest, {
             method: "POST",
-            headers: { "Content-type": "application/json" },
+            headers: {
+               "Content-type": "application/json",
+               "Authorization": "Bearer " + localStorage.getItem("token")
+            },
             body: JSON.stringify(sendData)
          });
          const { status } = res;

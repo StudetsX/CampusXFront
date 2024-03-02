@@ -33,7 +33,7 @@ function App() {
       setUser(JSON.parse(atob(base64)));  
    }, [token]);
 
-   const provideUser = { user, setToken };
+   const provideUser = { user, setToken, token };
    return (
       <UserContext.Provider value={provideUser}>
          <Router />
