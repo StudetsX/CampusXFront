@@ -19,8 +19,8 @@ function ModalReg({ setOpenModal }) {
 
    const [image, setImage] = useState(null);
 
-   const [name, setName] = useState("");
-   const [surName, setSurName] = useState("");
+   const [firstName, setFirstName] = useState("");
+   const [lastName, setLastName] = useState("");
    const [group, setGroup] = useState("");
    const [chair, setChair] = useState("");
 
@@ -40,11 +40,18 @@ function ModalReg({ setOpenModal }) {
          // formData
          const formData = new FormData();
          formData.append("image", image);
-         
+         formData.append("password",password)
+         formData.append("lastName",lastName)
+         formData.append("firstName",firstName)
+         formData.append("email",email)
+         formData.append("group","1")
+         formData.append("role","STUDENT")
 
 
 
-         const res = await fetch(REST.reg, { method: "POST", body: formData });
+
+         const res = await fetch(REST.reg, { method: "POST", body: formData
+         });
          const { status } = res;
          console.log(status);
          if (String(status)[0] === "2") {
@@ -81,8 +88,8 @@ function ModalReg({ setOpenModal }) {
                   }}
                />
             </label>
-            <TextInput type="name" val={name} set={setName} ph="Імʼя" />
-            <TextInput type="name" val={name} set={setName} ph="Прізвище" />
+            <TextInput type="name" val={firstName} set={setFirstName} ph="Імʼя" />
+            <TextInput type="name" val={lastName} set={setLastName} ph="Прізвище" />
             {role === "student" && (
                <label>
                   <p>Група</p>
@@ -92,7 +99,7 @@ function ModalReg({ setOpenModal }) {
                         setGroup(target.value);
                      }}
                   >
-                     <option value="Тв-22">Тв-22</option>
+                     <option value="1">Тв-22</option>
                      <option value="Тв-21">Тв-21</option>
                   </select>
                </label>
