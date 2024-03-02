@@ -38,7 +38,7 @@ function Header() {
                   <NavLink to="/rating">Рейтинг</NavLink>
                </li>
 
-               {user.role === "student" && (
+               {user.role === "STUDENT" && (
                   <>
                      <li>
                         <NavLink to="/tests">Тести</NavLink>
@@ -48,7 +48,7 @@ function Header() {
                      </li>
                   </>
                )}
-               {user.role === "teacher" && (
+               {user.role === "TEACHER" && (
                   <>
                      <li>
                         <NavLink to="/create-test">Створити тест</NavLink>

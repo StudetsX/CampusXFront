@@ -95,14 +95,14 @@ function ModalReg({ setOpenModal }) {
             </button>
             <div className="role-select">
                <button
-                  onClick={changeRole("student")}
-                  className={role === "student" ? "active" : ""}
+                  onClick={changeRole("STUDENT")}
+                  className={role === "STUDENT" ? "active" : ""}
                >
                   Студент
                </button>
                <button
-                  onClick={changeRole("teacher")}
-                  className={role === "teacher" ? "active" : ""}
+                  onClick={changeRole("TEACHER")}
+                  className={role === "TEACHER" ? "active" : ""}
                >
                   Вчитель
                </button>
