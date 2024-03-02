@@ -28,11 +28,32 @@ function ModalReg({ setOpenModal }) {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
 
+
+
+   // groups chairs
+   const [allGroups, setAllGroups] = useState([]);
+   const [allChairs, setAllChairs] = useState([]);
+
+   useEffect(() => {
+      (async () => {
+         const grps = fetch(REST.findAllGroups).then((res) => res.json());
+         setAllGroups(grps);
+      })();
+
+      (async () => {
+         const chrs = fetch(REST.findAllChairs).then((res) => res.json());
+         setAllChairs(chrs);
+      })();
+   }, []);
+
+
+
    const changeRole = (rl) => (e) => {
       console.log(e);
       e.preventDefault();
       setRole(rl);
    };
+
 
    function submit(e) {
       e.preventDefault();
@@ -117,8 +138,9 @@ function ModalReg({ setOpenModal }) {
                         setGroup(target.value);
                      }}
                   >
-                     <option value="1">Тв-22</option>
-                     <option value="Тв-21">Тв-21</option>
+                     {allGroups.map((grp) => (
+                     <option value={grp.id}>{grp.name}</option>
+                  ))}
                   </select>
                </label>
             )}
@@ -131,8 +153,9 @@ function ModalReg({ setOpenModal }) {
                         setChair(target.value);
                      }}
                   >
-                     <option value="Кібернетика">Кібернетика</option>
-                     <option value="Бази даних">Бази даних</option>
+                    {allChairs.map((grp) => (
+                     <option value={grp.id}>{grp.name}</option>
+                  ))}
                   </select>
                </label>
             )}
