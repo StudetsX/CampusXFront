@@ -23,7 +23,11 @@ function ModalLog({ setOpenModal }) {
       setResponse("waiting");
 
       (async () => {
-         const res = await fetch(REST.log, { method: "POST", body: JSON.stringify({email, password}) });
+         const res = await fetch(REST.log, {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({ email, password })
+         });
          const { status } = res;
          console.log(status);
          if (String(status)[0] === "2") {
