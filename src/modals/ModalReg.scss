@@ -1,36 +1,67 @@
 .olerlay {
    position: absolute;
-   top:0;
-   left:0;
+   top: 0;
+   left: 0;
    height: 100svh;
    width: 100vw;
-   background-color: rgba(0,0,0,0.15);
+   background-color: rgba(0, 0, 0, 0.15);
 }
 
 form.reg {
    position: absolute;
-   top:50%;
-   left:50%;
-   transform: translate(-50%,-50%);
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
    background-color: var(--dark);
    border: #fff solid 3px;
    border-radius: 12px;
    padding: 15px;
 
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+
    .back {
       position: absolute;
-      top:5px;
+      top: 5px;
       right: 5px;
-
    }
 
-   .role-select{
+   .role-select {
       display: flex;
       gap: 15px;
       justify-content: center;
 
-      button{
-         background-color: red;
+      button {
+         border-radius: 8px;
+         padding: 8px 16px;
+         background-color: var(--pink);
+         color: var(--white);
+
+         &:hover {
+            background-color: var(--pink-hover);
+            color: var(--light-white);
+         }
+      }
+   }
+
+   .photo {
+      display: block;
+      border: 1px dashed var(--white);
+      padding: 8px;
+      border-radius: 8px;
+   }
+
+   button:last-child {
+      align-self: center;
+      border-radius: 8px;
+      padding: 8px 24px;
+      // background-color: var(--pink);
+      color: var(--white);
+
+      &:hover {
+         background-color: var(--gray-focus);
+         color: var(--light-white);
       }
    }
 }
