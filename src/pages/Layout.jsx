@@ -9,6 +9,8 @@ import { UserContext } from "../contexts/UserContext";
 // comps
 import { User } from "../env/svgs";
 
+import Logo from "/CSSvg.png";
+
 import ModalReg from "../modals/ModalReg";
 import ModalLog from "../modals/ModalLog";
 
@@ -32,7 +34,7 @@ function Header() {
          <nav>
             <ul>
                <li>
-                  <NavLink to="/home">Campus X</NavLink>
+                  <NavLink to="/"><img src={Logo} alt="" /></NavLink>
                </li>
                <li>
                   <NavLink to="/rating">Рейтинг</NavLink>

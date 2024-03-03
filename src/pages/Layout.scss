@@ -7,6 +7,9 @@
    color: var(--gray-text);
    font-size: 1.2rem;
    nav {
+      a img {
+         height: 32px;
+      }
       display: flex;
       justify-content: space-between;
       align-items: center;

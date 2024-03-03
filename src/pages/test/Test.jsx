@@ -77,7 +77,7 @@ function Test() {
          console.log(status);
          if (String(status)[0] === "2") {
             console.log("success");
-            redirect("/home")
+            redirect("/")
          } else {
             console.log("fail");
          }

@@ -99,7 +99,7 @@ function CreateTest() {
          console.log(status);
          if (String(status)[0] === "2") {
             console.log("ok");
-            redirect("/home");
+            redirect("/");
          } else {
             console.log("fail");
          }
