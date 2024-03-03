@@ -13,12 +13,17 @@ function Tests() {
    const [tasks, setTasks] = useState([]);
 
    useEffect(() => {
+      if (user === "Guest") return;
+      // console.log(user);
+      // console.log(user.groupId);
       (async () => {
-         const tsts = fetch(REST.tests(user.groupId), {
+         console.log(user.groupId)
+         const tsts = await fetch(REST.tests(user.groupId), {
             headers: {
                Authorization: "Bearer " + localStorage.getItem("token")
             }
          }).then((res) => res.json());
+         console.log(tsts)
          setTasks(tsts);
       })();
       // test tasks
@@ -41,7 +46,7 @@ function Tests() {
       // ];
 
       // setTasks(testTask);
-   }, []);
+   }, [user]);
    return (
       <div className="tasks">
          <h1>Завдання</h1>

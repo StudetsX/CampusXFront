@@ -26,7 +26,7 @@ function Layout() {
 
 function Header() {
    const { user } = useContext(UserContext);
-   console.log(user);
+   // console.log(user);
    return (
       <header className="header">
          <nav>

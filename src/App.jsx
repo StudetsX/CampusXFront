@@ -15,18 +15,18 @@ function App() {
 
    useEffect(() => {
       console.log("token effect triggered");
-      console.log(token);
+      // console.log(token);
       // const userPlaceHodler = {
          
       // }
-      // const userPlaceHodler = {
-      //    id: 41,
-      //    name: "Ivan",
-      //    role: "STUDENT",
-      //    groupId: "1",
-      //    chairId: "1"
-      // }
-      // setUser(userPlaceHodler);
+      const userPlaceHodler = {
+         id: 41,
+         name: "Ivan",
+         role: "STUDENT",
+         groupId: "1",
+         chairId: "1"
+      }
+      setUser(userPlaceHodler);
       if (!token) return;
       console.log("token not empty")
       localStorage.setItem("token", token);
