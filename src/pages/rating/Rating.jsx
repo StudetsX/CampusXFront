@@ -1,5 +1,6 @@
 // libs
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 // context
 import { REST } from "../../env/config";
@@ -146,8 +147,10 @@ function DisplayUser({ student, number }) {
       <tr>
          <td className="number">{number + 1}</td>
          <td className="names">
-            <span>{student.firstName}</span>
-            <span>{student.lastName}</span>
+            <NavLink to={`/user/${student.id}`}>
+               <span>{student.firstName}</span>
+               <span>{student.lastName}</span>
+            </NavLink>
          </td>
          <td className="group">{student.group}</td>
          <td className="mark">{student.rating}</td>
