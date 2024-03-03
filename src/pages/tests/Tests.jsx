@@ -58,7 +58,7 @@ function Tests() {
 function DisplayTask({ t }) {
    return (
       <li>
-         <NavLink to={`/task${t.id}`}>
+         <NavLink to={`/task/${t.id}`}>
             <div className="top">
                <span>{t.name}</span>
                <span>{t.group}</span>

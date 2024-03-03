@@ -10,6 +10,7 @@ const REST = {
    createTest: `${BS}/createTest`,
    tests: (groupId)=>`${BS}/tasks/${groupId}`,
    test: (testId) => `${BS}/task/${testId}`,
+   sendTest: (testId) => `${BS}/sendTest/${testId}`,
 
 
    user: (userId) => `${BS}/user/${userId}`
