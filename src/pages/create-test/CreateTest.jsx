@@ -164,7 +164,8 @@ function CreateTest() {
                ))}
             <li className="add-question">
                <button
-                  onClick={() => {
+                  onClick={(e) => {
+                     e.preventDefault();
                      setQuestions((qs) => [
                         ...qs,
                         {
