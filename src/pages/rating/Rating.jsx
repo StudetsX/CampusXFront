@@ -147,10 +147,8 @@ function DisplayUser({ student, number }) {
       <tr>
          <td className="number">{number + 1}</td>
          <td className="names">
-            <NavLink to={`/user/${student.id}`}>
                <span>{student.firstName}</span>
                <span>{student.lastName}</span>
-            </NavLink>
          </td>
          <td className="group">{student.group}</td>
          <td className="mark">{student.rating}</td>
