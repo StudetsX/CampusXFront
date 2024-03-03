@@ -108,7 +108,7 @@ function ParamBar({
                   }}
                >
                   {allGroups.map((grp) => (
-                     <option value={grp.id}>{grp.name}</option>
+                     <option value={grp.name}>{grp.name}</option>
                   ))}
                </select>
             </label>
