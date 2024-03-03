@@ -41,7 +41,7 @@ function Header() {
                {user.role === "STUDENT" && (
                   <>
                      <li>
-                        <NavLink to="/tests">Тести</NavLink>
+                        <NavLink to="/tasks">Тести</NavLink>
                      </li>
                      <li>
                         <NavLink to="/messages">Повідомлення</NavLink>

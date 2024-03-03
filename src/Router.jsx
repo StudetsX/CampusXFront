@@ -20,8 +20,8 @@ function Router() {
                <Route path="/rating" element={<Rating/>}/>
 
                {/* student */}
-               <Route path="/tests" element={<Tests/>}/>
-               <Route path="/test/:id" element={<Test/>}/>
+               <Route path="/tasks" element={<Tests/>}/>
+               <Route path="/task/:id" element={<Test/>}/>
                {/* teachers*/}
                <Route path="create-test" element={<CreateTest/>}/>
                {/* <Route path="create-test" element={<CreateTest/>}/> */}

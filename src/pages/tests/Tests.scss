@@ -1,0 +1,37 @@
+.tasks {
+   ul {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      li {
+
+         a {
+            display: block;
+            height: 100%;
+            width: 100%;
+         }
+         background-color: var(--utility-gray);
+         border-radius: 12px;
+         padding: 8px 24px;
+         border: 1px solid var(--gray-border);
+         display: flex;
+         flex-direction: column;
+         gap: 8px;
+         .top {
+            font-size: 1.2rem;
+            span:nth-child(1){
+               color: var(--white);
+            }
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+         }
+         .bottom {
+            justify-content: space-between;
+            display: flex;
+            gap: 8px
+         }
+      }
+   }
+}

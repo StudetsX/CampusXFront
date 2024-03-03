@@ -7,7 +7,12 @@ const REST = {
    findAllGroups: `${BS}/findAllGroups`,
    findAllSubjects: `${BS}/findAllSubjects`,
 
-   createTest: `${BS}/createTest`
+   createTest: `${BS}/createTest`,
+   tests: (groupId)=>`${BS}/tasks/${groupId}`,
+   test: (testId) => `${BS}/task/${testId}`,
+
+
+   user: (userId) => `${BS}/user/${userId}`
 };
 
 export { REST };
