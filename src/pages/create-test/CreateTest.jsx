@@ -13,7 +13,6 @@ import "./CreateTest.scss";
 function CreateTest() {
    const redirect = useNavigate();
 
-
    const { token } = useContext(UserContext);
 
    const [title, setTitle] = useState("");
@@ -79,7 +78,13 @@ function CreateTest() {
          description,
          tasks: sendTests
       };
-      console.log(sendData);
+      // console.log(sendData);
+      let valid = true;
+      Object.entries(sendData).forEach(([key, val]) => {
+         if (!val) valid = false;
+      });
+      console.log(valid)
+      if (!valid) return;
 
       (async () => {
          const res = await fetch(REST.createTest, {
@@ -94,7 +99,7 @@ function CreateTest() {
          console.log(status);
          if (String(status)[0] === "2") {
             console.log("ok");
-            redirect("/home")
+            redirect("/home");
          } else {
             console.log("fail");
          }
@@ -185,7 +190,7 @@ function CreateTest() {
             </li>
          </ul>
          <div className="create-test-sibmit-wrapper">
-            <button >Підтвердити</button>
+            <button>Підтвердити</button>
          </div>
       </form>
    );
