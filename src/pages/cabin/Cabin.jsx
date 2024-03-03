@@ -7,9 +7,11 @@ import { UserContext } from "../../contexts/UserContext";
 
 // styles
 import "./Cabin.scss";
+import { REST } from "../../env/config";
 
 function Cabin() {
    const [userFullData, setUserFullData] = useState({});
+   const { id } = useParams();
 
    useEffect(() => {
       // testuser
@@ -28,7 +30,6 @@ function Cabin() {
       })();
    }, []);
 
-   const { id } = useParams();
    const { user } = useContext(UserContext);
 
    console.log(id, user.id, user.id == id);
