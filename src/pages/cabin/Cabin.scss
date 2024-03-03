@@ -1,10 +1,28 @@
 .cabin {
+   .choice-info {
+      margin-top: 24px;
+      height: 400px;
+      background-color: var(--utility-gray);
+      border-radius: 12px;
+      padding: 8px 24px;
+      border: 1px solid var(--gray-border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .mark{
+         font-size: 4rem;
+         text-align: center;
+      }
+   }
+
    .user-data-wrapper {
+      margin-top: 24px;
       display: grid;
       grid-template-columns: 3fr 7fr;
 
       & > * {
-         border: 1px solid #fff;
+         // border: 1px solid #fff;
       }
 
       .choice-bar {
@@ -33,6 +51,30 @@
                   color: var(--light-white);
                }
             }
+         }
+      }
+   }
+
+   .clear{
+      margin-top: 56px;
+      display: flex;
+      justify-content: end;
+      button {
+         border-radius: 8px;
+         padding: 8px 16px;
+         background-color: var(--pink);
+         color: var(--white);
+         // width: 50%;
+
+         &.active {
+            outline: 2px solid var(--light-white);
+            background-color: var(--pink-hover);
+            color: var(--light-white);
+         }
+
+         &:hover {
+            background-color: var(--pink-hover);
+            color: var(--light-white);
          }
       }
    }

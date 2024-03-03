@@ -10,6 +10,8 @@ import Rating from "./pages/rating/Rating";
 import Tests from "./pages/tests/Tests";
 import Test from "./pages/test/Test";
 import CreateTest from "./pages/create-test/CreateTest";
+import Message from "./pages/message/Message";
+import CreateMessage from "./pages/create-message/CreateMessage";
 
 function Router() {
    return (
@@ -26,6 +28,9 @@ function Router() {
                <Route path="create-test" element={<CreateTest/>}/>
                {/* <Route path="create-test" element={<CreateTest/>}/> */}
                <Route path="/cabin/:id" element={<Cabin/>}/>
+
+               <Route path="/messages" element={<Message/>}/>
+               <Route path="/create-message" element={<CreateMessage/>}/>
             </Route>
          </Routes>
       </BrowserRouter>
