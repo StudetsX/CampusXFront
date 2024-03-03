@@ -23,7 +23,7 @@ function Cabin() {
       // setUserFullData(testUser);
 
       (async () => {
-         const usr = fetch(REST.user(id)).then((res) => res.json());
+         const usr = await fetch(REST.user(id)).then((res) => res.json());
          setUserFullData(usr);
       })();
    }, []);

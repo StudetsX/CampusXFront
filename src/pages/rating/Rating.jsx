@@ -22,7 +22,7 @@ function Rating() {
       // ]);
 
       (async () => {
-         const grps = fetch(REST.findAllGroups).then((res) => res.json());
+         const grps = await fetch(REST.findAllGroups).then((res) => res.json());
          console.log(grps);
          setAllGroups(grps);
       })();
@@ -50,7 +50,7 @@ function Rating() {
    useEffect(() => {
       // test data
       (async () => {
-         const users = fetch(REST.rating(group, lastName)).then((res) =>
+         const users = await fetch(REST.rating(group, lastName)).then((res) =>
             res.json()
          );
          console.log(users);
