@@ -1,8 +1,17 @@
-# React + Vite
+#campus X
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Available on http://http://campusx.surge.sh
 
-Currently, two official plugins are available:
+CampusX представляє з себе універсальний засіб що допоможе студентам та викладачам мати усе одразу в одному місці. Почнаючи особистим кабінетом для перегляду успішності і тестів для студента, та особистим кабінетом викладачів, у якому вони можуть створювати тести і лабораторні роботи. І логічно якщо є тести то і оцінювання, тому було створено рейтинг за цими відмітками. Будь-який користувач нашого проекту може отримати доступ до рейтингу вказаної групи та знайти студента за прізвищем (наприклад себе). І звичайно увесь зазначений і інший функціонал супроводжується зручним, легко зрозумілим і мінімалістичним дизайном що створює певну родзинку у контрасті з можливостями сайту.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Front-end stack:
+React, Vite, Sass, JavaScript
+
+Backe-end stack:
+Java, Spring
+
+Deployment:
+Front-end SPA- surge.sh
+Back-end server - AWS EC2
+DataBase - AWS RDS
+File storage - AWS S3
