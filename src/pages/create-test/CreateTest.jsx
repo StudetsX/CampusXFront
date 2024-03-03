@@ -61,10 +61,10 @@ function CreateTest() {
          const trueNumber = tst.querySelector(".true-number").value;
          return {
             question,
-            answer1,
-            answer2,
-            answer3,
-            answer4,
+            answ1: answer1,
+            answ2: answer2,
+            answ3: answer3,
+            answ4: answer4,
             trueNumber
          };
       });

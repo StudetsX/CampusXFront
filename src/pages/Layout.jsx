@@ -71,7 +71,7 @@ function UserData({ role }) {
    const { user } = useContext(UserContext);
    return (
       <ul className="modalik-data">
-         <li className="modalik-name">{user.name || "Гість"}</li>
+         <li className="modalik-name">{user.name ? <NavLink to={`/cabin/${user.id}`}>{user.name}</NavLink> : "Гість"}</li>
          {!role && <Modal />}
       </ul>
    );

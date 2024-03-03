@@ -6,13 +6,13 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
 // styles
-import "./Cabin.scss"
+import "./Cabin.scss";
 
 function Cabin() {
    const { id } = useParams();
    const { user } = useContext(UserContext);
 
-   console.log(id, user.id, user.id == id)
+   console.log(id, user.id, user.id == id);
    return (
       <div className="cabin">
          <h1>Кабінет</h1>
@@ -44,14 +44,29 @@ function ChoiceBar({ choice, setChoice }) {
       <div className="choice-bar">
          <ul>
             <li>
-               <button onClick={changeChoice("message")} className={choice === "message" ? "active" : ""}>Повідомлення</button>
+               <button
+                  onClick={changeChoice("message")}
+                  className={choice === "message" ? "active" : ""}
+               >
+                  Повідомлення
+               </button>
             </li>
             <li>
-               <button onClick={changeChoice("tests")} className={choice === "tests" ? "active" : ""}>Тести</button>
+               <button
+                  onClick={changeChoice("tests")}
+                  className={choice === "tests" ? "active" : ""}
+               >
+                  Тести
+               </button>
             </li>
-            {user.role === "student" && (
+            {user.role === "STUDENT" && (
                <li>
-                  <button onClick={changeChoice("success")} className={choice === "success" ? "active" : ""}>Успішність</button>
+                  <button
+                     onClick={changeChoice("success")}
+                     className={choice === "success" ? "active" : ""}
+                  >
+                     Успішність
+                  </button>
                </li>
             )}
          </ul>
@@ -77,6 +92,16 @@ function CabinData({ id }) {
             <li>Олегов</li>
             <li>ІПС-22</li>
          </ul>
+         {/* test */}
+         <form>
+            <button
+               onClick={() => {
+                  localStorage.clear();
+               }}
+            >
+               logout
+            </button>
+         </form>
       </div>
    );
 }
