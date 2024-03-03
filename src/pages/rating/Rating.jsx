@@ -50,6 +50,7 @@ function Rating() {
    useEffect(() => {
       // test data
       (async () => {
+         console.log(REST.rating(group, lastName));
          const users = await fetch(REST.rating(group, lastName)).then((res) =>
             res.json()
          );
