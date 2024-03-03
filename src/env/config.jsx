@@ -1,4 +1,4 @@
-const BS = "http://localhost:8080/api/v2";
+const BS = "http://ec2-34-201-106-40.compute-1.amazonaws.com/api/v2";
 const REST = {
    reg: `${BS}/registration`,
    log: `${BS}/login`,
