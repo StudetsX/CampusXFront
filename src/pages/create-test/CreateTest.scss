@@ -61,16 +61,24 @@
 
       .test-answers {
          display: flex;
+         align-items: center;
          gap: 24px;
          li {
             list-style: circle;
             // border: 1px solid #fff;
             input {
                border: 1px solid var(--gray-border);
+               // background-color: var(--dark-field);
                border-radius: 8px;
                padding: 4px 8px;
             }
          }
+      }
+
+      .true-number{
+         background-color: var(--dark-field);
+         border-radius: 8px;
+         border: 1px solid var(--gray-border)
       }
    }
 

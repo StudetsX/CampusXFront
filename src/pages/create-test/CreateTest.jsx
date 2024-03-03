@@ -82,7 +82,7 @@ function CreateTest() {
             method: "POST",
             headers: {
                "Content-type": "application/json",
-               "Authorization": "Bearer " + localStorage.getItem("token")
+               Authorization: "Bearer " + localStorage.getItem("token")
             },
             body: JSON.stringify(sendData)
          });
@@ -142,7 +142,9 @@ function CreateTest() {
                placeholder="Опис тесту"
                cols="30"
                rows="10"
-               onChange={({target})=>{setDescription(target.value)}}
+               onChange={({ target }) => {
+                  setDescription(target.value);
+               }}
             ></textarea>
          </div>
          <ul className="questions">
@@ -200,12 +202,15 @@ function Question({ id, questions, setQuestions }) {
             <li>
                <input type="text" className="ans4" />
             </li>
-            <select className="true-number">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-            </select>
+            <label>
+               <p>Правильна відповідь</p>
+               <select className="true-number">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+               </select>
+            </label>
          </ul>
       </li>
    );

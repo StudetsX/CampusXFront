@@ -55,7 +55,7 @@ function Cabin() {
 }
 
 function ChoiceData({ userFullData }) {
-   const [choice, setChoice] = useState("success");
+   const [choice, setChoice] = useState("message");
    return (
       <div className="choice-data">
          <ChoiceBar choice={choice} setChoice={setChoice} />
