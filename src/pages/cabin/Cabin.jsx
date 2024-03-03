@@ -13,19 +13,19 @@ function Cabin() {
 
    useEffect(() => {
       // testuser
-      const testUser = {
-         firstName: "Bohdan",
-         lastName: "Shovkoplias",
-         rating: "89",
-         group: "IPS-22",
-         role: "STUDENT"
-      };
-      setUserFullData(testUser);
+      // const testUser = {
+      //    firstName: "Bohdan",
+      //    lastName: "Shovkoplias",
+      //    rating: "89",
+      //    group: "IPS-22",
+      //    role: "STUDENT"
+      // };
+      // setUserFullData(testUser);
 
-      // (async () => {
-      //    const usr = fetch(REST.user(id)).then((res) => res.json());
-      //    setUserFullData(usr);
-      // })();
+      (async () => {
+         const usr = fetch(REST.user(id)).then((res) => res.json());
+         setUserFullData(usr);
+      })();
    }, []);
 
    const { id } = useParams();

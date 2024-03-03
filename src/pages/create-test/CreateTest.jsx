@@ -1,5 +1,6 @@
 // libs
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 // context
 import { UserContext } from "../../contexts/UserContext";
@@ -10,6 +11,9 @@ import { Plus } from "../../env/svgs";
 // styles
 import "./CreateTest.scss";
 function CreateTest() {
+   const redirect = useNavigate();
+
+
    const { token } = useContext(UserContext);
 
    const [title, setTitle] = useState("");
@@ -90,13 +94,14 @@ function CreateTest() {
          console.log(status);
          if (String(status)[0] === "2") {
             console.log("ok");
+            redirect("/home")
          } else {
             console.log("fail");
          }
       })();
    }
    return (
-      <div className="create-test">
+      <form className="create-test" onSubmit={submit}>
          <h1>Створити тест</h1>
          <div className="fields">
             <input
@@ -179,9 +184,9 @@ function CreateTest() {
             </li>
          </ul>
          <div className="create-test-sibmit-wrapper">
-            <button onClick={submit}>Підтвердити</button>
+            <button >Підтвердити</button>
          </div>
-      </div>
+      </form>
    );
 }
 

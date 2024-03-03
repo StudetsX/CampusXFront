@@ -16,47 +16,47 @@ function Rating() {
    const [students, setStudents] = useState([]);
 
    useEffect(() => {
-      setAllGroups([
-         { id: 23, name: "Oleg" },
-         { id: 21, name: "Oleg2" }
-      ]);
+      // setAllGroups([
+      //    { id: 23, name: "Oleg" },
+      //    { id: 21, name: "Oleg2" }
+      // ]);
 
-      // (async () => {
-      //    const grps = fetch(REST.findAllGroups).then((res) => res.json());
-      //    console.log(grps);
-      //    setAllGroups(grps);
-      // })();
+      (async () => {
+         const grps = fetch(REST.findAllGroups).then((res) => res.json());
+         console.log(grps);
+         setAllGroups(grps);
+      })();
 
       // test data
-      const testStudents = [
-         {
-            id: 23,
-            firstName: "Oleg",
-            lastName: "Olegov",
-            group: "Tv-22",
-            rating: 87
-         },
-         {
-            id: 238,
-            firstName: "Oleg2",
-            lastName: "Olegov3",
-            group: "Tv-21",
-            rating: 63
-         }
-      ];
-      setStudents(testStudents);
+      // const testStudents = [
+      //    {
+      //       id: 23,
+      //       firstName: "Oleg",
+      //       lastName: "Olegov",
+      //       group: "Tv-22",
+      //       rating: 87
+      //    },
+      //    {
+      //       id: 238,
+      //       firstName: "Oleg2",
+      //       lastName: "Olegov3",
+      //       group: "Tv-21",
+      //       rating: 63
+      //    }
+      // ];
+      // setStudents(testStudents);
    }, []);
 
-   // useEffect(() => {
-   //    // test data
-   //    (async () => {
-   //       const users = fetch(REST.rating(group, lastName)).then((res) =>
-   //          res.json()
-   //       );
-   //       console.log(users);
-   //       setStudents(users);
-   //    })();
-   // }, [group, lastName]);
+   useEffect(() => {
+      // test data
+      (async () => {
+         const users = fetch(REST.rating(group, lastName)).then((res) =>
+            res.json()
+         );
+         console.log(users);
+         setStudents(users);
+      })();
+   }, [group, lastName]);
    return (
       <div className="rating">
          <h1>Рейтинг студентів</h1>

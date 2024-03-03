@@ -1,5 +1,5 @@
 // libs
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { REST } from "../../env/config";
 import { useState, useEffect } from "react";
 
@@ -9,6 +9,9 @@ import { useState, useEffect } from "react";
 import "./Test.scss";
 
 function Test() {
+   const redirect = useNavigate();
+
+
    const [taskData, setTaskData] = useState({});
    const { tasks } = taskData;
    console.log(taskData);
@@ -64,15 +67,19 @@ function Test() {
       (async () => {
          const res = await fetch(REST.sendTest(id), {
             method: "POST",
-            headers: { "Content-type": "application/json" },
+            headers: {
+               "Content-type": "application/json",
+               Authorization: "Bearer " + localStorage.getItem("token")
+            },
             body: JSON.stringify(answers)
          });
          const { status } = res;
          console.log(status);
          if (String(status)[0] === "2") {
-            console.log("success")
+            console.log("success");
+            redirect("/home")
          } else {
-            console.log("fail")
+            console.log("fail");
          }
       })();
    }
