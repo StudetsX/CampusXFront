@@ -90,6 +90,7 @@ function ParamBar({
       <ul className="params">
          <li>
             <input
+               placeholder="Прізвище"
                className="text-field"
                type="text"
                value={lastName}
@@ -134,7 +135,7 @@ function DisplayUsers({ students }) {
             <th>Рейтинг</th>
          </tr>
          {students.map((student, i) => (
-            <DisplayUser student={student} key={i} number={i}/>
+            <DisplayUser student={student} key={i} number={i} />
          ))}
       </table>
    );
@@ -143,7 +144,7 @@ function DisplayUsers({ students }) {
 function DisplayUser({ student, number }) {
    return (
       <tr>
-         <td className="number">{number+1}</td>
+         <td className="number">{number + 1}</td>
          <td className="names">
             <span>{student.firstName}</span>
             <span>{student.lastName}</span>

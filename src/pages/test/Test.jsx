@@ -47,7 +47,7 @@ function Test() {
       // setTaskData(testTaskdata);
 
       (async () => {
-         const tskD = fetch(REST.test(id), {
+         const tskD = await fetch(REST.test(id), {
             headers: {
                Authorization: "Bearer " + localStorage.getItem("token")
             }
